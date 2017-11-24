@@ -1,6 +1,7 @@
 class WebhookController < ApplicationController
   ## Lineからのcallbackか認証
-  protect_from_forgery with: :null_session
+  #protect_from_forgery with: :null_session
+  protect_from_forgery :except => [:callback]
   #protect_from_forgery with: :callback
   
 
