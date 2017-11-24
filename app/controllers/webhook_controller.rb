@@ -19,6 +19,7 @@ class WebhookController < ApplicationController
       return
       #render :nothing => true, status: 470
     end
+    p "Non error"
 
     event = params["events"][0]
     event_type = event["type"]
@@ -47,8 +48,6 @@ class WebhookController < ApplicationController
   def is_validate_signature
     signature = request.headers["X-LINE-Signature"]
     http_request_body = request.raw_post
-    p CHANNEL_SECRET
-    p http_request_body 
     hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, CHANNEL_SECRET, http_request_body)
     p "hash"
     signature_answer = Base64.strict_encode64(hash)
