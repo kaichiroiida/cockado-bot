@@ -19,9 +19,12 @@ class WebhookController < ApplicationController
       return
       #render :nothing => true, status: 470
     end
-    p "Non error"
 
     event = params["events"][0]
+    p "params"
+    p params
+    p "event"
+    p event
     event_type = event["type"]
     replyToken = event["replyToken"]
 
