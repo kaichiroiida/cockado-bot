@@ -7,8 +7,8 @@ require 'net/http'
  
 def client
        client = Line::Bot::Client.new { |config|
- config.channel_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
- config.channel_token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+ config.channel_secret = 'f6696a7a71b5ccfdcc86cbe16ffb8748'
+ config.channel_token = 'i+90zzq0VNOfefDOBwooX6NTlFXPj6Z5VvL+7YAkcl70lLsi3nV2Rpgmwd12tGz49ojLsJiVGhrT9fDEdDbHKsblfXrW06CAiW/R4QCB13PvPSOpcCubq4XUrQYQRludfNwyeeBmH7CYOayBmUG6bAdB04t89/1O/w1cDnyilFU='
  }
 end
  
@@ -44,7 +44,7 @@ def callback
           #画像を返すには、画像が保存されたURLを指定する。
           #なお、おうむ返しするには、１度AWSなど外部に保存する必要がある。ここでは割愛する
           when Line::Bot::Event::MessageType::Image
-            image_url = "https://XXXXXXXXXX/XXX.jpg"  #httpsであること
+            image_url = "https://pbs.twimg.com/profile_images/3620720369/c986fae1c77beac10d7606406fa0e7cf_400x400.jpeg"  #httpsであること
               message = {
                   type: "image",
                   originalContentUrl: image_url,
