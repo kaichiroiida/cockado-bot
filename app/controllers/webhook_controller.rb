@@ -31,16 +31,20 @@ class WebhookController < ApplicationController
       output_text = input_text
     end
 
+    p "Non error"
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
     res = client.reply(replyToken, output_text)
 
+    p "Non error"
     if res.status == 200
       logger.info({success: res})
     else
       logger.info({fail: res})
     end
+    p "Non error"
 
-    render :nothing => true, status: :ok
+    #render :nothing => true, status: :ok
+    return res
   end
 
   private
