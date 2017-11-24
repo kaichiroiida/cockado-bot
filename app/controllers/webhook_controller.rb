@@ -31,14 +31,16 @@ class WebhookController < ApplicationController
       output_text = input_text
     end
 
-    p "Non error"
     client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
+    p "client"
+    p client
     res = client.reply(replyToken, output_text)
 
     p "Non error"
     if res.status == 200
       logger.info({success: res})
     else
+    p "Errorrrr"
       logger.info({fail: res})
     end
     p "Non errorrrr"
