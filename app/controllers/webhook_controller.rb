@@ -12,7 +12,8 @@ def client
  }
 end
  
- 
+def index
+end 
  
 def callback
  
