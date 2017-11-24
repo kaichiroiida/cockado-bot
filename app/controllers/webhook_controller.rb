@@ -1,6 +1,8 @@
 class WebhookController < ApplicationController
   ## Lineからのcallbackか認証
   protect_from_forgery with: :null_session
+  protect_from_forgery with: :callback
+  
 
   #CHANNEL_SECRET = ENV['CHANNEL_SECRET']
   CHANNEL_SECRET = "f6696a7a71b5ccfdcc86cbe16ffb8748"
