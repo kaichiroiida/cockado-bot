@@ -43,8 +43,8 @@ class WebhookController < ApplicationController
     end
     p "Non error"
 
-    #render :nothing => true, status: :ok
-    return res
+    render :nothing => true#, status: :ok
+   # return res
   end
 
   private
