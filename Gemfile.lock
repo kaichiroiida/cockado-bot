@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/stivan622/line-bot-sdk-ruby.git
+  revision: 5f33f0699be088d5ef34a7dce7594de0ad56027c
+  specs:
+    line-bot-api (1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,6 +203,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   jbuilder (~> 2.5)
+  line-bot-api!
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.7)
@@ -213,4 +220,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.0
