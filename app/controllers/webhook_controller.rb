@@ -2,13 +2,19 @@ class WebhookController < ApplicationController
   ## Lineからのcallbackか認証
   protect_from_forgery with: :null_session
 
-  CHANNEL_SECRET = ENV['CHANNEL_SECRET']
-  OUTBOUND_PROXY = ENV['OUTBOUND_PROXY']
-  CHANNEL_ACCESS_TOKEN = ENV['CHANNEL_ACCESS_TOKEN']
+  #CHANNEL_SECRET = ENV['CHANNEL_SECRET']
+  CHANNEL_SECRET = "f6696a7a71b5ccfdcc86cbe16ffb8748"
+  #OUTBOUND_PROXY = ENV['OUTBOUND_PROXY']
+  OUTBOUND_PROXY = "http:/fixie:IMU9EMNelvSiOef@velodrome.usefixie.com:80"
+  
+  #CHANNEL_ACCESS_TOKEN = ENV['CHANNEL_ACCESS_TOKEN']
+  CHANNEL_ACCESS_TOKEN = "i+90zzq0VNOfefDOBwooX6NTlFXPj6Z5VvL+7YAkcl70lLsi3nV2Rpgmwd12tGz49ojLsJiVGhrT9fDEdDbHKsblfXrW06CAiW/R4QCB13PvPSOpcCubq4XUrQYQRludfNwyeeBmH7CYOayBmUG6bAdB04t89/1O/w1cDnyilFU="
 
   def callback
     unless is_validate_signature
-      render :nothing => true, status: 470
+      p "error"
+      return
+      #render :nothing => true, status: 470
     end
 
     event = params["events"][0]
@@ -38,7 +44,10 @@ class WebhookController < ApplicationController
   def is_validate_signature
     signature = request.headers["X-LINE-Signature"]
     http_request_body = request.raw_post
+    p CHANNEL_SECRET
+    p http_request_body 
     hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, CHANNEL_SECRET, http_request_body)
+    p "hash"
     signature_answer = Base64.strict_encode64(hash)
     signature == signature_answer
   end
